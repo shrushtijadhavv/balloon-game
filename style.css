@@ -1,0 +1,207 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Comic Sans MS', 'Marker Felt', cursive;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('Graphics/Symbol 3 copy.png');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f8ff;
+}
+
+.game-container {
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+.header {
+    text-align: center;
+    padding: 15px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 20px;
+    margin: 15px auto;
+    max-width: 80%;
+    border: 4px solid #FF9900;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.header p {
+    font-size: 1.8rem;
+    color: #4CAF50;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    letter-spacing: 0.5px;
+}
+
+#balloons-container {
+    position: absolute;
+    top: 0;
+    left: -100px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.alphabet-balloon {
+    position: absolute;
+    width: 180px;
+    height: 220px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    cursor: pointer;
+    z-index: 100;
+}
+
+/* Specific styles for balloons during inflation */
+.inflating-balloon {
+    transform-origin: center center;
+    transform: scale(0.1);
+    will-change: transform, opacity;
+    pointer-events: none; /* Prevent clicking while inflating */
+}
+
+.letter-image {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+/* Position the pump on the left side of the screen */
+.pump-container {
+    position: fixed;
+    left: 40px;
+    bottom: 40px;
+    width: 420px;
+    height: 420px;
+    z-index: 20;
+    cursor: pointer;
+    background-color: transparent;
+    padding: 15px;
+    border-radius: 20px;
+    border: none;
+    box-shadow: none;
+    transition: transform 0.2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Cloud image styling */
+.pump-cloud {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    bottom: -345px;
+    left: 0;
+    z-index: 1;
+}
+
+.pump-container{
+    top: 60px;
+}
+
+.pump-container:hover {
+    transform: scale(1.02);
+}
+
+/* Animated pump styling */
+#animated-pump {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    transform: scale(1.15);
+}
+
+/* Common styles for pump parts */
+.pump-part {
+    position: absolute;
+    object-fit: contain;
+    z-index: 2;
+    transform-origin: center center;
+    transition: transform 0.2s;
+    top: 100px;
+}
+
+/* Position the handle (purple T-handle) at top */
+#pump-handle {
+    position: absolute;
+    width: 160px;
+    height: auto;
+    top: 250px;
+    left: 120px;
+    z-index: 1;
+    transform-origin: center bottom; /* Set rotation point at bottom of handle */
+    transition: transform 0.1s ease-in-out;
+}
+
+/* Position the blue character/output below the handle */
+#pump-output {
+    width: 200px;
+    height: auto;
+    top: 350px;
+    left: 100px;
+    z-index: 1;
+}
+
+/* Position the pipe (angled drill) on the right */
+#pump-pipe {
+    width: 140px;
+    height: auto;
+    top: 350px;
+    left: 230px;
+    z-index: 3;
+    transform-origin: center bottom;
+    transition: transform 0.1s ease-in-out;
+    -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+
+/* Handle animation classes */
+.pump-handle-down {
+    animation: handleDown 0.3s ease-in-out;
+}
+
+/* Output animation class */
+.pump-output-pulse {
+    animation: outputPulse 0.3s ease-in-out;
+}
+
+/* Animation for handle movement - up and down motion */
+@keyframes handleDown {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(30px); }
+    100% { transform: translateY(0); }
+}
+
+/* Animation for output pulsing - grow and shrink horizontally only */
+@keyframes outputPulse {
+    0% { transform: scaleX(1); }
+    50% { transform: scaleX(1.2); }
+    100% { transform: scaleX(1); }
+}

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabet Balloon Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <p>Click the pump to make colorful alphabet balloons and pop them!</p>
+        </div>
+        
+        <div id="balloons-container">
+            <!-- Balloons will be created here dynamically -->
+        </div>
+        
+        <!-- Pump container with cloud backdrop -->
+        <div class="pump-container">
+            <img src="Graphics/Symbol 27.png" alt="Cloud" class="pump-cloud">
+            <div id="animated-pump">
+                <!-- Handle on top (purple T-handle) -->
+                <img src="Graphics/Symbol 320001.png" alt="Pump Handle" id="pump-handle" class="pump-part">
+                
+                <!-- Blue character/mascot placed below the handle -->
+                <img src="Graphics/Symbol 320003.png" alt="Pump Output" id="pump-output" class="pump-part">
+                
+                <!-- Pipe on the right side which generates balloons -->
+                <img src="Graphics/Symbol 320002.png" alt="Pump Pipe" id="pump-pipe" class="pump-part">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Use the game.js file for game logic -->
+    <script src="game.js"></script>
+</body>
+</html> 
